@@ -41,10 +41,10 @@ export const DonateSection = () => {
   };
 
   const sponsorshipLevels = [
-    { level: t('donate.sponsorship.preschool'), students: '216', price: '2€' },
-    { level: t('donate.sponsorship.primary'), students: '537', price: '2€' },
-    { level: t('donate.sponsorship.secondary1'), students: '368', price: '3€' },
-    { level: t('donate.sponsorship.secondary2'), students: '197', price: '5€' },
+    { level: t('donate.sponsorship.preschool'), students: '216', priceMonth: '2€', priceYear: '24€' },
+    { level: t('donate.sponsorship.primary'), students: '537', priceMonth: '2€', priceYear: '24€' },
+    { level: t('donate.sponsorship.secondary1'), students: '368', priceMonth: '3€', priceYear: '36€' },
+    { level: t('donate.sponsorship.secondary2'), students: '197', priceMonth: '5€', priceYear: '60€' },
   ];
 
   const bookingUrl = "https://www.booking.com/Share-APAkqfd";
@@ -210,13 +210,15 @@ export const DonateSection = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {sponsorshipLevels.map((item, index) => (
                 <div
                   key={index}
                   className="bg-background-alt rounded-xl p-4 text-center hover:shadow-md transition-shadow"
                 >
-                  <p className="text-2xl font-bold text-primary-600 mb-1">{item.price}</p>
+                  <p className="text-2xl font-bold text-primary-600 mb-0">{item.priceMonth}</p>
+                  <p className="text-xs text-neutral-500 mb-2">/ mois</p>
+                  <p className="text-sm font-medium text-neutral-700 mb-1">{item.priceYear} / an</p>
                   <p className="text-sm text-neutral-600 mb-2">{item.level.split(':')[0]}</p>
                   <div className="flex items-center justify-center gap-1 text-xs text-neutral-500">
                     <Users className="w-3 h-3" />
@@ -224,6 +226,30 @@ export const DonateSection = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Instructions virement permanent */}
+            <div className="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Heart className="w-5 h-5 text-primary-600" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-neutral-900 mb-2">Comment parrainer un enfant ?</h4>
+                  <p className="text-sm text-neutral-700 mb-3">
+                    Mettez en place un <strong>virement permanent mensuel</strong> auprès de votre banque vers notre compte :
+                  </p>
+                  <ul className="text-sm text-neutral-600 space-y-1 mb-3">
+                    <li>1. Connectez-vous à votre espace bancaire en ligne</li>
+                    <li>2. Créez un virement permanent avec la fréquence "mensuelle"</li>
+                    <li>3. Utilisez l'IBAN ci-dessous comme bénéficiaire</li>
+                    <li>4. Indiquez en référence : "Parrainage + votre nom"</li>
+                  </ul>
+                  <p className="text-xs text-neutral-500 italic">
+                    Contactez-nous par WhatsApp pour confirmer votre parrainage et recevoir des nouvelles de votre filleul(e).
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
