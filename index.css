@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/700.css';
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/caveat/400.css';
+
+:root {
+  --background: #F8FCFF;
+  --background-alt: #EBF5FB;
+  --background-paper: #FFFFFF;
+  
+  /* Bleu du logo - couleur principale */
+  --primary-50: #E8F4FC;
+  --primary-100: #D1E9F9;
+  --primary-200: #A3D3F3;
+  --primary-300: #75BDED;
+  --primary-400: #47A7E7;
+  --primary-500: #1E8FD9;
+  --primary-600: #0B76C2;
+  --primary-700: #085D9A;
+  --primary-800: #064573;
+  --primary-900: #042C4B;
+  
+  /* Bleu marine foncé - secondaire */
+  --secondary-50: #E6EEF5;
+  --secondary-100: #CDDEE9;
+  --secondary-200: #9BBDD4;
+  --secondary-300: #699CBE;
+  --secondary-400: #377BA9;
+  --secondary-500: #1A5A8A;
+  --secondary-600: #15486E;
+  --secondary-700: #103653;
+  --secondary-800: #0B2437;
+  --secondary-900: #05121C;
+  
+  /* Accent - Orange/brique des bâtiments */
+  --accent: #D4742C;
+  --accent-foreground: #FFFFFF;
+  
+  --neutral-900: #1A2B3D;
+  --neutral-800: #2D4356;
+  --neutral-500: #5C7A94;
+  --neutral-200: #D4E2ED;
+  --neutral-100: #EBF2F7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--neutral-800);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  z-index: 9999;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', serif;
+  color: var(--neutral-900);
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  :root {
+    --background: 200 60% 98%;
+    --foreground: 210 40% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 17%;
+    --primary: 203 81% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 207 68% 32%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 200 30% 92%;
+    --muted-foreground: 210 30% 40%;
+    --accent: 27 68% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 25% 85%;
+    --input: 200 25% 85%;
+    --ring: 203 81% 45%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
